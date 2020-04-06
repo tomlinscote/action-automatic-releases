@@ -24,7 +24,7 @@ inputs:
     required: false
   message:
     description: "Message to go on the release before the changelog."
-    required: false
+    required: true
 outputs:
   automatic_releases_tag:
     decription: "The release tag this action just processed"

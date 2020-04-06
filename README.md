@@ -1,6 +1,6 @@
-# GitHub Automatic Releases
+# Automatic Releases with Custom Message
 
-This action simplifies the GitHub release process by automatically uploading assets, generating changelogs, handling pre-releases, and so on.
+This action simplifies the GitHub release process by automatically uploading assets, generating changelogs, handling pre-releases, and so on. It includes a custom message placed before the generated changelog.
 
 ## Contents
 
@@ -23,6 +23,7 @@ This example workflow will kick in as soon as changes land on `master`. After ru
 1. Generate a changelog from all the commits between this, and the previous `latest` tag.
 1. Generate a new release associated with the `latest` tag (removing any previous associated releases).
 1. Update this new release with the specified title (e.g. `Development Build`).
+1. Add the message "My Message" to the release before the changelog.
 1. Upload `LICENSE.txt` and any `jar` files as release assets.
 1. Mark this release as a `pre-release`.
 
@@ -52,6 +53,7 @@ jobs:
           automatic_release_tag: "latest"
           prerelease: true
           title: "Development Build"
+          message: "My Message"
           files: |
             LICENSE.txt
             *.jar
@@ -63,9 +65,8 @@ Similar to the previous example, this workflow will kick in as soon as new tags 
 
 1. Generate a changelog from all the commits between this and the previous [semver-looking](https://semver.org/) tag.
 1. Generate a new release and associate it with this tag.
+1. Add the message "My Message" to the release before the changelog.
 1. Upload `LICENSE.txt` and any `jar` files as release assets.
-
-Once again there's an example of this over at [marvinpinto/actions](https://github.com/marvinpinto/actions/releases/latest).
 
 ```yaml
 ---
@@ -91,6 +92,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
+          message: "My Message"
           files: |
             LICENSE.txt
             *.jar
@@ -106,7 +108,7 @@ jobs:
 | `automatic_release_tag` | Tag name to use for automatic releases, e.g `latest`.      | `null`   |
 | `title`                 | Release title; defaults to the tag name if none specified. | Tag Name |
 | `files`                 | Files to upload as part of the release assets.             | `null`   |
-| `message`               | Message to go on the release before the changelog.         | `null`   |
+| `message`\*\*               | Message to go on the release before the changelog.         | `null`   |
 
 ### Notes:
 
