@@ -11,8 +11,6 @@ This action simplifies the GitHub release process by automatically uploading ass
 
 > **NOTE**: This is a fork of _GitHub Automatic Releases_ from [marvinpinto/actions](https://github.com/marvinpinto/actions) to customise it with a release message before the changelog.
 
-> **NOTE**: The tomlinscote/action-automatic-releases repository is an automatically generated mirror of the tomlinscote/actions monorepo containing this and other actions.
-
 ## Usage Examples
 
 ### Automatically generate a pre-release when changes land on master
